@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b62pemly067kk"]
+
+[ext_resource type="AudioStream" uid="uid://dowwbyl41utnh" path="res://Sounds&Music/paper_sounds1.wav" id="1_hhm4i"]
+[ext_resource type="AudioStream" uid="uid://djbojsh33xjy5" path="res://Sounds&Music/select.wav" id="2_kobda"]
+[ext_resource type="AudioStream" uid="uid://dthftlb4v1bft" path="res://Sounds&Music/correct2.wav" id="3_snd0r"]
+[ext_resource type="AudioStream" uid="uid://bei51uqef0dx3" path="res://Sounds&Music/game_music.wav" id="4_nitn2"]
+
+[node name="AudioController" type="Node"]
+
+[node name="PaperSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_hhm4i")
+bus = &"SFX"
+
+[node name="SelectSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kobda")
+volume_db = -20.03
+bus = &"SFX"
+
+[node name="CorrectSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_snd0r")
+volume_db = -15.022
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nitn2")
+volume_db = -37.0
+bus = &"Music"

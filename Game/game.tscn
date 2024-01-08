@@ -1,0 +1,650 @@
+[gd_scene load_steps=34 format=3 uid="uid://ccv6na34lie0i"]
+
+[ext_resource type="Script" path="res://Game/game.gd" id="1_d7ggb"]
+[ext_resource type="Texture2D" uid="uid://delnblicb23t4" path="res://Game/background_test2.png" id="2_agefb"]
+[ext_resource type="FontFile" uid="uid://bhbd0rtdqcjfo" path="res://Fonts/Pixeled.ttf" id="3_eyrwj"]
+[ext_resource type="Texture2D" uid="uid://onyegk33wjm5" path="res://Game/heart2.png" id="4_4b8jn"]
+[ext_resource type="Texture2D" uid="uid://bi6an7sryaycm" path="res://Game/pause_button_normal.png" id="5_nckkt"]
+[ext_resource type="Texture2D" uid="uid://cgsjamk4gphsc" path="res://Game/heart2_exploded1.png" id="5_wmehr"]
+[ext_resource type="Texture2D" uid="uid://dwnjhpuaa6hta" path="res://Game/pause_button_hover.png" id="6_fx5i6"]
+[ext_resource type="AudioStream" uid="uid://dowwbyl41utnh" path="res://Sounds&Music/paper_sounds1.wav" id="8_ct53n"]
+[ext_resource type="AudioStream" uid="uid://b086l5jsie2lw" path="res://Sounds&Music/heart_break2.wav" id="8_irwao"]
+[ext_resource type="Shader" path="res://Game/game.gdshader" id="8_ndyib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0rj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3gv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ab3ia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p23l"]
+
+[sub_resource type="Animation" id="Animation_8labi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4b8jn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_iva0e"]
+resource_name = "break_heart"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_wmehr"), ExtResource("5_wmehr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki12d"]
+_data = {
+"RESET": SubResource("Animation_8labi"),
+"break_heart": SubResource("Animation_iva0e")
+}
+
+[sub_resource type="Animation" id="Animation_xnhcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4b8jn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0aby1"]
+resource_name = "break_heart"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_wmehr"), ExtResource("5_wmehr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xb70j"]
+_data = {
+"RESET": SubResource("Animation_xnhcu"),
+"break_heart": SubResource("Animation_0aby1")
+}
+
+[sub_resource type="Animation" id="Animation_3nj0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4b8jn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bgndh"]
+resource_name = "break_heart"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_wmehr"), ExtResource("5_wmehr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7j0tq"]
+_data = {
+"RESET": SubResource("Animation_3nj0h"),
+"break_heart": SubResource("Animation_bgndh")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ul65r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fl3x3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6oq4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rrys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5npm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r35bc"]
+shader = ExtResource("8_ndyib")
+shader_parameter/circle_size = 0.0
+
+[sub_resource type="Animation" id="Animation_0m5mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TransitionRect:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TransitionRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_m4g70"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TransitionRect:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TransitionRect:material:shader_parameter/circle_size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_som7g"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TransitionRect:material:shader_parameter/circle_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.925]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TransitionRect:visible")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tygcw"]
+_data = {
+"RESET": SubResource("Animation_0m5mt"),
+"fade_in": SubResource("Animation_m4g70"),
+"fade_out": SubResource("Animation_som7g")
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_d7ggb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_agefb")
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 1104.0
+offset_top = 272.0
+offset_right = 1768.0
+offset_bottom = 688.0
+theme_override_colors/font_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/caret_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_constants/line_spacing = -40
+theme_override_constants/caret_width = 8
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0rj7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e3gv2")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_ab3ia")
+context_menu_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+caret_blink = true
+caret_blink_interval = 1.0
+draw_spaces = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 1104.0
+offset_top = 236.0
+offset_right = 1744.0
+offset_bottom = 652.0
+mouse_filter = 2
+
+[node name="OptionButton1" type="Button" parent="CanvasLayer/OptionsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_disabled_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/icon_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/icon_focus_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6p23l")
+toggle_mode = true
+flat = true
+
+[node name="OptionButton2" type="Button" parent="CanvasLayer/OptionsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_disabled_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/icon_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/icon_focus_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6p23l")
+toggle_mode = true
+flat = true
+
+[node name="OptionButton3" type="Button" parent="CanvasLayer/OptionsContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_disabled_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/icon_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_colors/icon_focus_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6p23l")
+toggle_mode = true
+flat = true
+
+[node name="TopUIElements" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 136.0
+offset_right = -136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+
+[node name="LivesContainer" type="HBoxContainer" parent="CanvasLayer/TopUIElements"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -28.0
+offset_bottom = 28.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="CanvasLayer/TopUIElements/LivesContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_ki12d")
+}
+
+[node name="AnimationPlaye2" type="AnimationPlayer" parent="CanvasLayer/TopUIElements/LivesContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_xb70j")
+}
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="CanvasLayer/TopUIElements/LivesContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_7j0tq")
+}
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/TopUIElements/LivesContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+texture = ExtResource("4_4b8jn")
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/TopUIElements/LivesContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+texture = ExtResource("4_4b8jn")
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/TopUIElements/LivesContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+texture = ExtResource("4_4b8jn")
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer/TopUIElements"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -66.0
+offset_right = 32.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.988235, 0.996078, 0.839216, 1)
+theme_override_constants/line_spacing = -40
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 32
+text = "ds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/TopUIElements"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -3.5
+offset_right = 6.0
+offset_bottom = 3.5
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(0, 3.5)
+focus_mode = 0
+texture_normal = ExtResource("5_nckkt")
+texture_hover = ExtResource("6_fx5i6")
+
+[node name="BottomUIElements" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = -296.0
+offset_right = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/BottomUIElements"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -79.0
+offset_bottom = 56.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.235294, 0.376471, 0.423529, 1)
+theme_override_colors/font_pressed_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.517647, 0.639216, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ul65r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fl3x3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6oq4q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8rrys")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5npm3")
+text = "confirm"
+flat = true
+
+[node name="TableElements" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 136.0
+offset_right = -136.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TTTLabel" type="Label" parent="CanvasLayer/TableElements"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -8.0
+offset_right = 616.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+text = "Text to translate"
+
+[node name="PTTLabel" type="Label" parent="CanvasLayer/TableElements"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -704.0
+offset_bottom = 112.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+text = "Translated text"
+
+[node name="SamplesLabel" type="Label" parent="CanvasLayer/TableElements"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1656.0
+offset_top = 512.0
+offset_right = -952.0
+offset_bottom = 624.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.290196, 0.196078, 0.407843, 1)
+theme_override_fonts/font = ExtResource("3_eyrwj")
+theme_override_font_sizes/font_size = 40
+text = "Language samples
+"
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer/TableElements"]
+visible = false
+texture_filter = 1
+position = Vector2(190, 719)
+scale = Vector2(8, 8)
+texture = ExtResource("4_4b8jn")
+
+[node name="Papers" type="Control" parent="CanvasLayer/TableElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TransitionRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_r35bc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -420.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.290196, 0.196078, 0.407843, 1)
+
+[node name="Transitions" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tygcw")
+}
+
+[node name="CorrectSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ct53n")
+bus = &"SFX"
+
+[node name="HeartBreakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_irwao")
+volume_db = -16.177
+bus = &"SFX"
+
+[connection signal="text_changed" from="CanvasLayer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="CanvasLayer/OptionsContainer/OptionButton1" to="." method="_on_option_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsContainer/OptionButton2" to="." method="_on_option_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsContainer/OptionButton3" to="." method="_on_option_button_3_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/TopUIElements/LivesContainer/AnimationPlayer3" to="." method="_on_animation_player_3_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/TopUIElements/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BottomUIElements/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/Transitions" to="." method="_on_transitions_animation_finished"]
